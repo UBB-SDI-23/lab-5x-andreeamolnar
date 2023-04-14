@@ -146,7 +146,7 @@ class AuthorsByAvgReleasingYearOfTheirBooks(generics.ListCreateAPIView ):
 
     def get_queryset(self):
         query = Author.objects\
-            .annotate(avg_releasing_year = Avg('bookwithauthors__book__releasing_year'))\
+            .annotate(avg_releasing_year = Avg('bookwithauthors__books__releasing_year'))\
             .order_by('avg_releasing_year')
         print(query.query)
 

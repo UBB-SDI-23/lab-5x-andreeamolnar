@@ -129,6 +129,7 @@ class AuthorSerializer_list( serializers.ModelSerializer):
 
 class AuthorFilterSerializer(serializers.ModelSerializer):
     avg_releasing_year = serializers.FloatField(read_only = True)
+    # bookwithauthors =  BookWithAuthorsSerializer( read_only = True,many = True)
 
     class Meta:
         model = Author
@@ -137,6 +138,7 @@ class AuthorFilterSerializer(serializers.ModelSerializer):
 class AuthorSerializer(serializers.ModelSerializer):
    
     books = BookWithAuthorsSerializer(read_only=True ,many = True)
+    # bookwithauthors =  BookWithAuthorsSerializer( read_only = True,many = True)
     
     class Meta:
         model = Author
