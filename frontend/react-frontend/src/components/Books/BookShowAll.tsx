@@ -10,99 +10,109 @@ import {
   Container,
   IconButton,
   Tooltip,
+  TextField,
 } from "@mui/material";
-
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 //import { BACKEND_API_URL } from "../../constants";
-import { PublishingHouse } from "../../models/PublishingHouse";
+import { Book } from "../../models/Book";
 import ReadMoreIcon from "@mui/icons-material/ReadMore";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import AddIcon from "@mui/icons-material/Add";
 
-export const PublishingHouseShowAll = () => {
+export const BookShowAll = () => {
   const [loading, setLoading] = useState(false);
-  const [publishingHouses, setPublishingHouses] = useState<PublishingHouse[]>(
-    []
-  );
+  const [books, setBooks] = useState<Book[]>([]);
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://127.0.0.1:8000/api/publishing-house/")
+    fetch(`http://127.0.0.1:8000/api/book/`)
       .then((response) => response.json())
       .then((data) => {
-        setPublishingHouses(data);
-
+        setBooks(data);
         setLoading(false);
       });
   }, []);
 
   return (
     <Container>
-      <h1>All Publishing Houses</h1>
+      <h1>All books</h1>
 
       {loading && <CircularProgress />}
-      {!loading && publishingHouses.length === 0 && (
-        <p>No publishing houses found</p>
-      )}
+      {!loading && books.length === 0 && <p>No books found</p>}
       {!loading && (
-        <IconButton
-          component={Link}
-          sx={{ mr: 3 }}
-          to={`/publishing-house/add`}
-        >
-          <Tooltip title="Add a new publishing house" arrow>
-            <AddIcon color="primary" />
-          </Tooltip>
-        </IconButton>
+        // <IconButton component={Link} sx={{ mr: 3 }} to={`/book/add`}>
+        //   <Tooltip title="Add a new book" arrow>
+        //     <AddIcon color="primary" />
+        //   </Tooltip>
+        // </IconButton>
+        // <IconButton component={Link} sx={{ mr: 3 }} to={`/findbook/`}>
+        //   <Tooltip title="Filter" arrow>
+        //     <AddIcon color="primary" />
+        //   </Tooltip>
+        // </IconButton>
+        <TextField
+          id="filter"
+          label="Filter"
+          variant="outlined"
+          fullWidth
+          sx={{ mb: 2 }}
+        />
       )}
-
-      {!loading && publishingHouses.length > 0 && (
+      {/* // ) && (
+        //   <IconButton component={Link} sx={{ mr: 3 }} to={`/findbook/`}>
+        //     <Tooltip title="Filter" arrow>
+        //       <AddIcon color="primary" />
+        //     </Tooltip>
+        //   </IconButton>
+        //   // onChange={(event) =>
+        //   //   setCourse({ ...course, description: event.target.value })
+        //   // }
+        // )} */}
+      {!loading && books.length > 0 && (
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
                 <TableCell>#</TableCell>
-                <TableCell align="right">Name</TableCell>
-                <TableCell align="right">Headquarters</TableCell>
-                <TableCell align="right">Founding Year</TableCell>
+                <TableCell align="right">Title</TableCell>
+                <TableCell align="right">Publishing house</TableCell>
+                <TableCell align="right">Description</TableCell>
+                <TableCell align="center">Releasing year</TableCell>
                 <TableCell align="center">Operations</TableCell>
               </TableRow>
             </TableHead>
-
             <TableBody>
-              {publishingHouses.map((publishingHouse, index) => (
-                <TableRow key={publishingHouse.id}>
+              {books.map((book, index) => (
+                <TableRow key={book.id}>
                   <TableCell component="th" scope="row">
                     {index + 1}
                   </TableCell>
-
                   <TableCell component="th" scope="row">
                     <Link
-                      to={`/publishing-house/${publishingHouse.id}/details`}
-                      title="View publishing house details"
+                      to={`/book/${book.id}/details`}
+                      title="View book details"
                     >
-                      {publishingHouse.name}
+                      {book.title}
                     </Link>
                   </TableCell>
-
                   <TableCell align="right">
-                    {publishingHouse.headquarters}
+                    {book.publishing_house?.name}
                   </TableCell>
                   <TableCell align="right">
-                    {publishingHouse.founding_year}
+                    {book.publishing_house.name}
                   </TableCell>
-                  {/* <TableCell align="right">{publishingHouse.teacher?.name}</TableCell> */}
+                  <TableCell align="right">{book.description}</TableCell>
+                  <TableCell align="right">{book.releasing_year}</TableCell>
                   <TableCell align="right">
                     <IconButton
                       component={Link}
                       sx={{ mr: 3 }}
-                      to={`/publishing-house/${publishingHouse.id}/details`}
+                      to={`/book/${book.id}/details`}
                     >
-                      <Tooltip title="View publishing house details" arrow>
+                      <Tooltip title="View book details" arrow>
                         <ReadMoreIcon color="primary" />
                       </Tooltip>
                     </IconButton>
@@ -110,7 +120,7 @@ export const PublishingHouseShowAll = () => {
                     <IconButton
                       component={Link}
                       sx={{ mr: 3 }}
-                      to={`/publishing-house/${publishingHouse.id}/edit`}
+                      to={`/book/${book.id}/edit`}
                     >
                       <EditIcon />
                     </IconButton>
@@ -118,7 +128,7 @@ export const PublishingHouseShowAll = () => {
                     <IconButton
                       component={Link}
                       sx={{ mr: 3 }}
-                      to={`/publishing-house/${publishingHouse.id}/delete`}
+                      to={`/book/${book.id}/delete`}
                     >
                       <DeleteForeverIcon sx={{ color: "red" }} />
                     </IconButton>

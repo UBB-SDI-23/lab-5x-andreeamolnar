@@ -23,7 +23,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import AddIcon from "@mui/icons-material/Add";
 
-export const PublishingHouseShowAll = () => {
+export const PublishingHousesByNumberOfBooks = () => {
   const [loading, setLoading] = useState(false);
   const [publishingHouses, setPublishingHouses] = useState<PublishingHouse[]>(
     []
@@ -31,7 +31,7 @@ export const PublishingHouseShowAll = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://127.0.0.1:8000/api/publishing-house/")
+    fetch("http://127.0.0.1:8000/api/publishing-houses/count-smth/")
       .then((response) => response.json())
       .then((data) => {
         setPublishingHouses(data);
@@ -42,23 +42,13 @@ export const PublishingHouseShowAll = () => {
 
   return (
     <Container>
-      <h1>All Publishing Houses</h1>
+      <h1>sorted Publishing Houses</h1>
 
       {loading && <CircularProgress />}
       {!loading && publishingHouses.length === 0 && (
         <p>No publishing houses found</p>
       )}
-      {!loading && (
-        <IconButton
-          component={Link}
-          sx={{ mr: 3 }}
-          to={`/publishing-house/add`}
-        >
-          <Tooltip title="Add a new publishing house" arrow>
-            <AddIcon color="primary" />
-          </Tooltip>
-        </IconButton>
-      )}
+      {!loading}
 
       {!loading && publishingHouses.length > 0 && (
         <TableContainer component={Paper}>
@@ -69,7 +59,7 @@ export const PublishingHouseShowAll = () => {
                 <TableCell align="right">Name</TableCell>
                 <TableCell align="right">Headquarters</TableCell>
                 <TableCell align="right">Founding Year</TableCell>
-                <TableCell align="center">Operations</TableCell>
+                <TableCell align="center">Books</TableCell>
               </TableRow>
             </TableHead>
 
@@ -95,34 +85,8 @@ export const PublishingHouseShowAll = () => {
                   <TableCell align="right">
                     {publishingHouse.founding_year}
                   </TableCell>
-                  {/* <TableCell align="right">{publishingHouse.teacher?.name}</TableCell> */}
-                  <TableCell align="right">
-                    <IconButton
-                      component={Link}
-                      sx={{ mr: 3 }}
-                      to={`/publishing-house/${publishingHouse.id}/details`}
-                    >
-                      <Tooltip title="View publishing house details" arrow>
-                        <ReadMoreIcon color="primary" />
-                      </Tooltip>
-                    </IconButton>
-
-                    <IconButton
-                      component={Link}
-                      sx={{ mr: 3 }}
-                      to={`/publishing-house/${publishingHouse.id}/edit`}
-                    >
-                      <EditIcon />
-                    </IconButton>
-
-                    <IconButton
-                      component={Link}
-                      sx={{ mr: 3 }}
-                      to={`/publishing-house/${publishingHouse.id}/delete`}
-                    >
-                      <DeleteForeverIcon sx={{ color: "red" }} />
-                    </IconButton>
-                  </TableCell>
+                  {publishingHouse["books"]?.length}
+                  <TableCell align="right"></TableCell>
                 </TableRow>
               ))}
             </TableBody>
