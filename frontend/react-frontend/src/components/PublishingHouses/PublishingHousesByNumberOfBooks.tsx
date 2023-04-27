@@ -8,20 +8,13 @@ import {
   TableBody,
   CircularProgress,
   Container,
-  IconButton,
-  Tooltip,
 } from "@mui/material";
 
-import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 //import { BACKEND_API_URL } from "../../constants";
 import { PublishingHouse } from "../../models/PublishingHouse";
-import ReadMoreIcon from "@mui/icons-material/ReadMore";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import AddIcon from "@mui/icons-material/Add";
 
 export const PublishingHousesByNumberOfBooks = () => {
   const [loading, setLoading] = useState(false);

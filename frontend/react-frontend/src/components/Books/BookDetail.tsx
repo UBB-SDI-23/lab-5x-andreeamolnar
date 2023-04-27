@@ -16,9 +16,7 @@ export const BookDetails = () => {
 
   useEffect(() => {
     const fetchBook = async () => {
-      // TODO: use axios instead of fetch
-      // TODO: handle errors
-      // TODO: handle loading state
+
       const response = await fetch(`http://127.0.0.1:8000/api/book/${bookId}/`);
 
       const book = await response.json();

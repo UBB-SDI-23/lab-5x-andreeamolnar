@@ -12,15 +12,12 @@ import {
   Tooltip,
   TextField,
 } from "@mui/material";
-import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-//import { BACKEND_API_URL } from "../../constants";
 import { Book } from "../../models/Book";
 import ReadMoreIcon from "@mui/icons-material/ReadMore";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import AddIcon from "@mui/icons-material/Add";
 
 export const BookShowAll = () => {
   const [loading, setLoading] = useState(false);
