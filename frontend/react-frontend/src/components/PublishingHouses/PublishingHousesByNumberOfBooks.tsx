@@ -24,7 +24,7 @@ export const PublishingHousesByNumberOfBooks = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://127.0.0.1:8000/api/publishing-houses/count-smth/")
+    fetch("http://16.16.75.155/api/publishing-houses/count-smth/")
       .then((response) => response.json())
       .then((data) => {
         setPublishingHouses(data);

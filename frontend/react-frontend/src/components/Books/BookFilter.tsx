@@ -26,7 +26,7 @@ export const BookFilter = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://127.0.0.1:8000/api/findbooks/")
+    fetch("http://16.16.75.155/api/findbooks/")
       .then((response) => response.json())
       .then((data) => {
         setBooks(data);

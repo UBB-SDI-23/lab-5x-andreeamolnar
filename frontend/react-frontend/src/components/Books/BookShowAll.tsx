@@ -25,7 +25,7 @@ export const BookShowAll = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://127.0.0.1:8000/api/book/`)
+    fetch(`http://16.16.75.155/api/book/`)
       .then((response) => response.json())
       .then((data) => {
         setBooks(data);

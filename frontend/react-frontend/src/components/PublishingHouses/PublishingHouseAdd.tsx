@@ -54,7 +54,7 @@ export const PublishingHouseAdd = () => {
   const addPH = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
     try {
-      await axios.post(`http://127.0.0.1:8000/api/publishing-house/`, PH);
+      await axios.post(`http://16.16.75.155/api/publishing-house/`, PH);
       navigate("/publishing_house");
     } catch (error) {
       console.log(error);

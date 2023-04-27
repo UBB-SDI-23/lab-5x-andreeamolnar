@@ -17,7 +17,7 @@ export const PublishingHouseDelete = () => {
   const handleDelete = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
     await axios.delete(
-      `http://127.0.0.1:8000/api/publishing-house/${publishingHouseId}/`
+      `http://16.16.75.155/api/publishing-house/${publishingHouseId}/`
     );
     // go to courses list
     navigate("/publishing-house");
