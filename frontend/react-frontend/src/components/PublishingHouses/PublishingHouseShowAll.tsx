@@ -30,7 +30,7 @@ export const PublishingHouseShowAll = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://16.16.75.155/api/publishing-house/")
+    fetch("http://16.16.75.155:80/api/publishing-house/")
       .then((response) => response.json())
       .then((data) => {
         setPublishingHouses(data);

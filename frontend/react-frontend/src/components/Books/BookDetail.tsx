@@ -16,7 +16,9 @@ export const BookDetails = () => {
 
   useEffect(() => {
     const fetchBook = async () => {
-      const response = await fetch(`http://16.16.75.155/api/book/${bookId}/`);
+      const response = await fetch(
+        `http://16.16.75.155:80/api/book/${bookId}/`
+      );
 
       const book = await response.json();
       console.log(book);

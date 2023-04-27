@@ -22,7 +22,7 @@ export const PublishingHouseDetail = () => {
       // TODO: handle loading state
 
       const response = await fetch(
-        `http://16.16.75.155/api/publishing-house/${publishingHouseId}/`
+        `http://16.16.75.155:80/api/publishing-house/${publishingHouseId}/`
       );
 
       const PH = await response.json();
