@@ -12,8 +12,8 @@ import { AppMenu } from "./components/AppMenu";
 
 import { PublishingHouseShowAll } from "./components/PublishingHouses/PublishingHouseShowAll";
 import { PublishingHouseDetail } from "./components/PublishingHouses/PublishingHouseDetail";
-//import { PublishingHouseAdd } from "./components/PublishingHouses/PublishingHouseAdd";
-//import { PublishingHouseDelete } from "./components/PublishingHouses/PublishingHouseDelete";
+import { PublishingHouseAdd } from "./components/PublishingHouses/PublishingHouseAdd";
+import { PublishingHouseDelete } from "./components/PublishingHouses/PublishingHouseDelete";
 //import { PublishingHousesByNumberOfBooks } from "./components/PublishingHouses/PublishingHousesByNumberOfBooks";
 
 // function App() {
@@ -47,11 +47,6 @@ function App() {
 
           <Route path="/" element={<AppHome />} />
 
-          {/*           
-          <Route path="/book" element={<BookShowAll />} />
-          <Route path="/book/:bookId/details" element={<BookDetails />} />
-
-
           <Route
             path="/publishing-house/add"
             element={<PublishingHouseAdd />}
@@ -60,6 +55,11 @@ function App() {
             path="/publishing-house/:publishingHouseId/delete"
             element={<PublishingHouseDelete />}
           />
+
+          {/* <Route path="/book" element={<BookShowAll />} />
+          <Route path="/book/:bookId/details" element={<BookDetails />} />
+
+
           <Route
             path="publishing-houses/count-smth/"
             element={<PublishingHousesByNumberOfBooks />}
@@ -68,7 +68,7 @@ function App() {
 
           {/* <Route path="/courses/:courseId/edit" element={<CourseDetails />} />
           <Route path="/courses/:courseId/delete" element={<CourseDelete />} />
-          <Route path="/courses/add" element={<CourseAdd />} /> */}
+          <Route path="/courses/add" element={<CourseAdd />} />*/}
         </Routes>
       </Router>
     </React.Fragment>
