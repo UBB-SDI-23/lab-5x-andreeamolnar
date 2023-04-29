@@ -10,8 +10,8 @@ import { AppMenu } from "./components/AppMenu";
 //import { BookDetails } from "./components/Books/BookDetail";
 //import { BookFilter } from "./components/Books/BookFilter";
 
-//import { PublishingHouseShowAll } from "./components/PublishingHouses/PublishingHouseShowAll";
-//import { PublishingHouseDetail } from "./components/PublishingHouses/PublishingHouseDetail";
+import { PublishingHouseShowAll } from "./components/PublishingHouses/PublishingHouseShowAll";
+import { PublishingHouseDetail } from "./components/PublishingHouses/PublishingHouseDetail";
 //import { PublishingHouseAdd } from "./components/PublishingHouses/PublishingHouseAdd";
 //import { PublishingHouseDelete } from "./components/PublishingHouses/PublishingHouseDelete";
 //import { PublishingHousesByNumberOfBooks } from "./components/PublishingHouses/PublishingHousesByNumberOfBooks";
@@ -36,11 +36,6 @@ function App() {
         <AppMenu />
 
         <Routes>
-          <Route path="/" element={<AppHome />} />
-
-          {/* 
-          <Route path="/book" element={<BookShowAll />} />
-          <Route path="/book/:bookId/details" element={<BookDetails />} />
           <Route
             path="/publishing-house"
             element={<PublishingHouseShowAll />}
@@ -49,6 +44,14 @@ function App() {
             path="/publishing-house/:publishingHouseId/details"
             element={<PublishingHouseDetail />}
           />
+
+          <Route path="/" element={<AppHome />} />
+
+          {/*           
+          <Route path="/book" element={<BookShowAll />} />
+          <Route path="/book/:bookId/details" element={<BookDetails />} />
+
+
           <Route
             path="/publishing-house/add"
             element={<PublishingHouseAdd />}
