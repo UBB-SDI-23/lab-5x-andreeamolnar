@@ -6,8 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AppHome } from "./components/AppHome";
 import { AppMenu } from "./components/AppMenu";
 
-//import { BookShowAll } from "./components/Books/BookShowAll";
-//import { BookDetails } from "./components/Books/BookDetail";
+import { BookShowAll } from "./components/Books/BookShowAll";
+import { BookDetails } from "./components/Books/BookDetail";
 import { BookFilter } from "./components/Books/BookFilter";
 
 import { PublishingHouseShowAll } from "./components/PublishingHouses/PublishingHouseShowAll";
@@ -57,10 +57,10 @@ function App() {
           />
           <Route path="findbooks/" element={<BookFilter />} />
 
-          {/* 
           <Route path="/book" element={<BookShowAll />} />
           <Route path="/book/:bookId/details" element={<BookDetails />} />
 
+          {/* 
 
           <Route
             path="publishing-houses/count-smth/"
