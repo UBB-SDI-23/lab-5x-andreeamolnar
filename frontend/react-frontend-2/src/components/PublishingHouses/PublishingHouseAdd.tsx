@@ -9,7 +9,7 @@ import {
 import { Container } from "@mui/system";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-//import { BACKEND_API_URL } from "../../constants";
+import { BACKEND_API_URL } from "../../constants";
 import { PublishingHouse } from "../../models/PublishingHouse";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -53,7 +53,7 @@ export const PublishingHouseAdd = () => {
   const addPH = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
     try {
-      await axios.post(`http://16.16.75.155:80/api/publishing-house/`, PH);
+      await axios.post(`${BACKEND_API_URL}/publishing-house/`, PH);
       navigate("/publishing_house");
     } catch (error) {
       console.log(error);
