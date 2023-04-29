@@ -8,7 +8,7 @@ import { AppMenu } from "./components/AppMenu";
 
 //import { BookShowAll } from "./components/Books/BookShowAll";
 //import { BookDetails } from "./components/Books/BookDetail";
-//import { BookFilter } from "./components/Books/BookFilter";
+import { BookFilter } from "./components/Books/BookFilter";
 
 import { PublishingHouseShowAll } from "./components/PublishingHouses/PublishingHouseShowAll";
 import { PublishingHouseDetail } from "./components/PublishingHouses/PublishingHouseDetail";
@@ -55,20 +55,22 @@ function App() {
             path="/publishing-house/:publishingHouseId/delete"
             element={<PublishingHouseDelete />}
           />
+          <Route path="findbooks/" element={<BookFilter />} />
 
-          {/* <Route path="/book" element={<BookShowAll />} />
+          {/* 
+          <Route path="/book" element={<BookShowAll />} />
           <Route path="/book/:bookId/details" element={<BookDetails />} />
 
 
           <Route
             path="publishing-houses/count-smth/"
             element={<PublishingHousesByNumberOfBooks />}
-          />
-          <Route path="findbooks/" element={<BookFilter />} /> */}
+          /> */}
 
           {/* <Route path="/courses/:courseId/edit" element={<CourseDetails />} />
           <Route path="/courses/:courseId/delete" element={<CourseDelete />} />
-          <Route path="/courses/add" element={<CourseAdd />} />*/}
+          <Route path="/courses/add" element={<CourseAdd />} />
+*/}
         </Routes>
       </Router>
     </React.Fragment>
