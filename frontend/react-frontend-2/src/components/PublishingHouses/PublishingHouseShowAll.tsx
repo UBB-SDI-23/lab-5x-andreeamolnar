@@ -30,7 +30,7 @@ export const PublishingHouseShowAll = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`${BACKEND_API_URL}/api/publishing-house/`)
+    fetch(`${BACKEND_API_URL}/publishing-house/`)
       .then((response) => response.json())
       .then((data) => {
         setPublishingHouses(data);
