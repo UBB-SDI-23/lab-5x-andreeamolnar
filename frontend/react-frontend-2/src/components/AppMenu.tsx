@@ -68,7 +68,7 @@ export const AppMenu = () => {
             sx={{ mr: 5 }}
             startIcon={<LocalLibraryIcon />}
           >
-            Filter sth
+            Sort Publishing Houses nrB
           </Button>
 
           <Button

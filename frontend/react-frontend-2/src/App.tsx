@@ -14,7 +14,7 @@ import { PublishingHouseShowAll } from "./components/PublishingHouses/Publishing
 import { PublishingHouseDetail } from "./components/PublishingHouses/PublishingHouseDetail";
 import { PublishingHouseAdd } from "./components/PublishingHouses/PublishingHouseAdd";
 import { PublishingHouseDelete } from "./components/PublishingHouses/PublishingHouseDelete";
-//import { PublishingHousesByNumberOfBooks } from "./components/PublishingHouses/PublishingHousesByNumberOfBooks";
+import { PublishingHousesByNumberOfBooks } from "./components/PublishingHouses/PublishingHousesByNumberOfBooks";
 
 // function App() {
 //   const [count, setCount] = useState(0);
@@ -60,12 +60,10 @@ function App() {
           <Route path="/book" element={<BookShowAll />} />
           <Route path="/book/:bookId/details" element={<BookDetails />} />
 
-          {/* 
-
           <Route
             path="publishing-houses/count-smth/"
             element={<PublishingHousesByNumberOfBooks />}
-          /> */}
+          />
 
           {/* <Route path="/courses/:courseId/edit" element={<CourseDetails />} />
           <Route path="/courses/:courseId/delete" element={<CourseDelete />} />
