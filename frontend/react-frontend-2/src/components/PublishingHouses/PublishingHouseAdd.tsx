@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { Container } from "@mui/system";
 import { useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //import { BACKEND_API_URL } from "../../constants";
 import { PublishingHouse } from "../../models/PublishingHouse";
 
@@ -60,13 +60,13 @@ export const PublishingHouseAdd = () => {
     }
   };
 
-  const handleInputChange = (event: any, value: any, reason: any) => {
-    console.log("input", value, reason);
+  //   const handleInputChange = (event: any, value: any, reason: any) => {
+  //     console.log("input", value, reason);
 
-    // if (reason === "input") {
-    //   debouncedFetchSuggestions(value);
-    // }
-  };
+  //     // if (reason === "input") {
+  //     //   debouncedFetchSuggestions(value);
+  //     // }
+  //   };
 
   return (
     <Container>
