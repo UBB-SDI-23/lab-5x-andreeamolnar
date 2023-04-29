@@ -27,7 +27,7 @@ export const BookFilter = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`${BACKEND_API_URL}/api/findbooks/`)
+    fetch(`${BACKEND_API_URL}/findbooks/`)
       .then((response) => response.json())
       .then((data) => {
         setBooks(data);
