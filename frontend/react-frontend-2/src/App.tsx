@@ -1,34 +1,74 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0);
+import * as React from "react";
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AppHome } from "./components/AppHome";
+import { AppMenu } from "./components/AppMenu";
+
+//import { BookShowAll } from "./components/Books/BookShowAll";
+//import { BookDetails } from "./components/Books/BookDetail";
+//import { BookFilter } from "./components/Books/BookFilter";
+
+//import { PublishingHouseShowAll } from "./components/PublishingHouses/PublishingHouseShowAll";
+//import { PublishingHouseDetail } from "./components/PublishingHouses/PublishingHouseDetail";
+//import { PublishingHouseAdd } from "./components/PublishingHouses/PublishingHouseAdd";
+//import { PublishingHouseDelete } from "./components/PublishingHouses/PublishingHouseDelete";
+//import { PublishingHousesByNumberOfBooks } from "./components/PublishingHouses/PublishingHousesByNumberOfBooks";
+
+// function App() {
+//   const [count, setCount] = useState(0);
+
+//   return (
+//     <React.Fragment>
+//       {/* <PublishingHouseShowAll /> */}
+
+//       <div className="App"></div>
+//     </React.Fragment>
+//   );
+// }
+// export default App;
+
+function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <React.Fragment>
+      <Router>
+        <AppMenu />
+
+        <Routes>
+          <Route path="/" element={<AppHome />} />
+
+          {/* 
+          <Route path="/book" element={<BookShowAll />} />
+          <Route path="/book/:bookId/details" element={<BookDetails />} />
+          <Route
+            path="/publishing-house"
+            element={<PublishingHouseShowAll />}
+          />
+          <Route
+            path="/publishing-house/:publishingHouseId/details"
+            element={<PublishingHouseDetail />}
+          />
+          <Route
+            path="/publishing-house/add"
+            element={<PublishingHouseAdd />}
+          />
+          <Route
+            path="/publishing-house/:publishingHouseId/delete"
+            element={<PublishingHouseDelete />}
+          />
+          <Route
+            path="publishing-houses/count-smth/"
+            element={<PublishingHousesByNumberOfBooks />}
+          />
+          <Route path="findbooks/" element={<BookFilter />} /> */}
+
+          {/* <Route path="/courses/:courseId/edit" element={<CourseDetails />} />
+          <Route path="/courses/:courseId/delete" element={<CourseDelete />} />
+          <Route path="/courses/add" element={<CourseAdd />} /> */}
+        </Routes>
+      </Router>
+    </React.Fragment>
   );
 }
 
